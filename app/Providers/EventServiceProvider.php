@@ -2,10 +2,15 @@
 
 namespace App\Providers;
 
+use App\Events\IngredientLowStockEvent;
+use App\Events\IngredientOutOfStockEvent;
+use App\Listeners\NotifyMerchantForIngredientLowStock;
+use App\Listeners\NotifyMerchantForIngredientOutOfStock;
+use App\Models\Ingredient;
+use App\Observers\IngredientStockObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,6 +23,24 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+
+        IngredientLowStockEvent::class => [
+            NotifyMerchantForIngredientLowStock::class,
+        ],
+
+        IngredientOutOfStockEvent::class => [
+            NotifyMerchantForIngredientOutOfStock::class,
+        ],
+    ];
+
+
+    /**
+     * The model observers for your application.
+     *
+     * @var array
+     */
+    protected $observers = [
+        Ingredient::class => [IngredientStockObserver::class],
     ];
 
     /**
