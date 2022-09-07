@@ -59,10 +59,10 @@ First, Write a controller action that:
 - Use the API endpoints available in "Customer Operations" folder.
 
 ## Email Notifications
-You can view email notifications [here](http://localhost:8025).
+You can view email notifications locally [here](http://localhost:8025).
 
 ## Tests
-- Run the following commands in inside docker terminal of app container: 
+Run the following command inside docker terminal of `larave.test` container: 
 
 `php artisan test`
 
