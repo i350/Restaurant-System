@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\ApiAuthController as AuthController;
@@ -20,4 +21,10 @@ Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+
+// Customer Routes
+Route::middleware(['auth:sanctum', 'customer'])->group(function () {
+    Route::apiResource('orders', OrderController::class)->only(['store', 'index', 'show']);
 });
