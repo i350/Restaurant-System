@@ -1,8 +1,4 @@
-## Restaurant System
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and
-creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in
-many web projects, such as:
+# Restaurant System
 
 ## About
 
@@ -45,11 +41,31 @@ First, Write a controller action that:
 }
 ```
 
-## Use
 
-[//]: # (TODO)
+## Setup
+- Clone repository
+- Install `Docker` in your machine
+- Run the following commands in terminal:
+    - `./vendor/bin/sail up`
+    - `./vendor/bin/sail artisan migrate:fresh --seed`
+
+## Use
+- Login as user using the following credentials:
+  <br>Email: `customer@email.com` , Password: `password`
+
+## API
+- Import the postman collection included in the repository `Restaurant System.postman_collection.json`.
+- Hit the `Login` request to generate access token (No need to copy it to env vars, It will be updated automatically).
+- Use the API endpoints available in "Customer Operations" folder.
+
+## Email Notifications
+You can view email notifications [here](http://localhost:8025).
+
+## Tests
+- Run the following commands in inside docker terminal of app container: 
+
+`php artisan test`
 
 ## License
-
 This project made by [Islam Mohamed Abdelfattah](mailto:IslamM.Abdelfattah@gmail.com) as a coding challenge, 
-please don't use without prior request.
+please don't use without personal approval.
