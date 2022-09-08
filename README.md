@@ -41,6 +41,8 @@ First, Write a controller action that:
 }
 ```
 
+## Database Design
+![](/home/islam/Desktop/WebDev/restaurant_system/db_design.png "Database Design")
 
 ## Setup
 - Clone repository
